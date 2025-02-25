@@ -13,7 +13,7 @@ st.set_page_config(page_title='Prediction of Disease Outbreaks',layout='wide',pa
 
 # Use relative path instead of Windows absolute path
 diabetes_model = pickle.load(open(os.path.join(BASE_DIR, "saving_models", "diabetes_model.sav"), "rb"))
-heart_disease_model = pickle.load(open(os.path.join(BASE_DIR, "saving_models", "heart_disease_model.sav"), "rb"))
+heart_disease_model = pickle.load(open(os.path.join(BASE_DIR, "saving_models", "heart_model.sav"), "rb"))
 parkinsons_model = pickle.load(open(os.path.join(BASE_DIR, "saving_models", "parkinsons_model.sav"), "rb"))
 
 with st.sidebar:
