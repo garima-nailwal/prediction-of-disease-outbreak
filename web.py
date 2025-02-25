@@ -3,10 +3,18 @@ import pickle # load pre-trained model loading
 import streamlit as st    # web app
 from streamlit_option_menu import option_menu
 
+# Get the current working directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 st.set_page_config(page_title='Prediction of Disease Outbreaks',layout='wide',page_icon="🧑‍⚕️")
-diabetes_model= pickle.load(open(r"C:\Users\Administrator\Documents\disease_outbreak\saving_models\diabetes_model.sav",'rb'))
-heart_disease_model=pickle.load(open(r"C:\Users\Administrator\Documents\disease_outbreak\saving_models\heart_model.sav",'rb'))
-parkinsons_model= pickle.load(open(r"C:\Users\Administrator\Documents\disease_outbreak\saving_models\parkinsons_model.sav",'rb'))
+# diabetes_model= pickle.load(open(r"C:\Users\Administrator\Documents\disease_outbreak\saving_models\diabetes_model.sav",'rb'))
+# heart_disease_model=pickle.load(open(r"C:\Users\Administrator\Documents\disease_outbreak\saving_models\heart_model.sav",'rb'))
+# parkinsons_model= pickle.load(open(r"C:\Users\Administrator\Documents\disease_outbreak\saving_models\parkinsons_model.sav",'rb'))
+
+# Use relative path instead of Windows absolute path
+diabetes_model = pickle.load(open(os.path.join(BASE_DIR, "saving_models", "diabetes_model.sav"), "rb"))
+heart_disease_model = pickle.load(open(os.path.join(BASE_DIR, "saving_models", "heart_disease_model.sav"), "rb"))
+parkinsons_model = pickle.load(open(os.path.join(BASE_DIR, "saving_models", "parkinsons_model.sav"), "rb"))
 
 with st.sidebar:
     selected= option_menu('Prediction of disease outbreak system',
